@@ -21,3 +21,13 @@ newjsumd () {
 "\n"\
 "\n});" > $1 && $EDITOR $1
 }
+
+newrjsbuild () {
+    [[ -z $EDITOR ]] && EDITOR=vim
+    [[ -e "build.js" ]] && print "build.js exists.  Not modifying.\n" && $EDITOR $1
+    [[ ! -e "build.js" ]] && print "({"\
+"\n    baseUrl: '.',"\
+"\n    name: 'main',"\
+"\n    out: 'main.build.js'"\
+"\n})" > "build.js" && $EDITOR "build.js"
+}

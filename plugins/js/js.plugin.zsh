@@ -1,11 +1,3 @@
-# npm
-alias npms='npm search'
-alias npm='npm install'
-alias npmg='sudo npm -g install'
-alias npmi='npm info'
-alias npmu='npm update'
-alias npmgu='sudo npm -g update'
-
 # useful functions
 newjsumd () {
     [[ -z $EDITOR ]] && EDITOR=vim

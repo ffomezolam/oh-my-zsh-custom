@@ -38,6 +38,9 @@ newyuidoc () {
         "\n\t"'"url": "",'\
         "\n\t"'"options": {'\
         "\n\t\t"'"outdir": "./doc"'\
+        "\n\t\t"'"exclude": "doc"'\
+        "\n\t\t"'"tabtospace": "4"'\
+        "\n\t\t"'"linkNatives": "true"'\
         "\n\t"'}'\
         "\n"'}' > "yuidoc.json"
 }

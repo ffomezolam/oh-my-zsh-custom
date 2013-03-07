@@ -42,5 +42,5 @@ newyuidoc () {
         "\n\t\t"'"tabtospace": "4"'\
         "\n\t\t"'"linkNatives": "true"'\
         "\n\t"'}'\
-        "\n"'}' > "yuidoc.json"
+        "\n"'}' > "yuidoc.json" && $EDITOR "yuidoc.json"
 }

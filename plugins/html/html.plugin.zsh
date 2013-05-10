@@ -1,28 +1,26 @@
 # useful functions
 newhtml () {
     [[ -z $EDITOR ]] && EDITOR=vim
-    [[ -e $1 ]] && print "$1 exists.  Not modifying.\n" && $EDITOR $1
-    [[ ! -e $1 ]] && print "<!DOCTYPE html>\n"\
-"\n<html>"\
-"\n    <head>"\
-"\n        <title></title>"\
-"\n    </head>"\
-"\n    <body>"\
-"\n    </body>"\
-"\n</html>" > $1 && $EDITOR $1
-}
+    if [[ -e $1 ]] then
+        print "$1 exists.  Not modifying.\n"
+        $EDITOR $1
+    else
+        cat > $1 <<END
+<!DOCTYPE html>
 
-newphp () {
-    [[ -z $EDITOR ]] && EDITOR=vim
-    [[ -e $1 ]] && print "$1 exists.  Not modifying.\n" && $EDITOR $1
-    [[ ! -e $1 ]] && print "<?php"\
-"\n?>"\
-"\n<!DOCTYPE html>\n"\
-"\n<html>"\
-"\n    <head>"\
-"\n        <title></title>"\
-"\n    </head>"\
-"\n    <body>"\
-"\n    </body>"\
-"\n</html>" > $1 && $EDITOR $1
+<!--[if lt IE 7]><html class="ie6"><![endif]-->
+<!--[if IE 7]><html class="ie7"><![endif]-->
+<!--[if IE 8]><html class="ie7"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+    </head>
+    <body>
+    </body>
+</html>
+END
+        $EDITOR $1
+    fi
 }
